@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path 
-from .views import createfunc
+from .views import listfunc
+
 
 urlpatterns = [
-    path('create',createfunc),
+    path('list/',listfunc,name='list')
     
 ]

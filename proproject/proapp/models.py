@@ -10,6 +10,6 @@ class ProModel(models.Model):
     storename=models.TextField()
     snsimage = models.ImageField(upload_to='')
     price = models.IntegerField()
-    openinngtime= models.IntegerField()
+    openingtime= models.IntegerField()
     parking=models.BooleanField()
     

@@ -1,9 +1,8 @@
 from django.shortcuts import render
+from .models import ProModel
 
 # Create your views here.
 
-def createfunc(request):
-    if request.method == "POST":
-        address = request.POST['address']
-        price = request.POST['price']
-    return render(request, 'create.html', {})
+def listfunc(request):
+    object_list  = ProModel.objects.all()
+    return render(request, 'list.html', {'object_list':object_list})

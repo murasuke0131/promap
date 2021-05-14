@@ -2,7 +2,7 @@
 
 {% block header %}
 <div class="alert alert-primary" role="alert">
-    <h3>社内SNS</h3>
+    <h3>protein map</h3>
 </div>
 
 {% endblock header %}
@@ -13,10 +13,18 @@
 <div class="container">
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>タイトル:{{ item.title}}</p>
-        <p>投稿者:{{ item.author}}</p>
-        <a href="#" class="btn btn-primary  " tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-        <a href="#" class="btn btn-secondary  " tabindex="-1" role="button" aria-disabled="true">Link</a>
+        <p>P:{{ item.protein}}</p>
+        <p>F:{{ item.fat}}</p>
+        <p>C:{{ item.caarbohydrate}}</p>
+        <p>メニュー:{{ item.menu}}</p>
+        <p>住所:{{ item.addres}}</p>
+        <p>店名:{{ item.storename}}</p>
+        <p>写真:{{ item.snsimage}}</p>
+        <p>値段:{{ item.price}}</p>
+        <p>営業時間:{{ item.openingtime}}</p>
+        <p>駐車場:{{ item.parking}}</p>
+
+        
     </div>
     {% endfor %}
 </div>
