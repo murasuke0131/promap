@@ -26,4 +26,4 @@ class ProCreate(CreateView):
 
 def listfunc(request):
     object_list  = Customer.objects.all()
-    return render(request, 'list.html', {'object_list':object_list})
+    return render(request, 'gmap/list.html', {'object_list':object_list})
