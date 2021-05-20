@@ -19,7 +19,8 @@
         <p>メニュー:{{ item.menu}}</p>
         <p>住所:{{ item.addres}}</p>
         <p>店名:{{ item.storename}}</p>
-        <p>写真:{{ item.snsimage}}</p>
+        <p>写真:</p>
+        <img src='{{ item.snsimage.url}}'/>
         <p>値段:{{ item.price}}</p>
         <p>営業時間:{{ item.openingtime}}</p>
         <p>駐車場:{{ item.parking}}</p>

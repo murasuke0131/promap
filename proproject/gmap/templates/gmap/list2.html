@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <h3>protein map</h3>
+</div>
+
+{% endblock header %}
+
+
+
+{% block content %}
+<div class="container">
+    {% for item in object_list %}
+    <div class="alert alert-success" role="alert">
+        <p>名前:{{ item.name}}</p>
+        <p>住所:{{ item.address}}</p>
+        <p>緯度:{{ item.lat}}</p>
+        <p>経度:{{ item.lng}}</p>
+        
+
+        
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'proapp.apps.ProappConfig'
+    'proapp.apps.ProappConfig',
+    'gmap.apps.GmapConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,9 +78,9 @@ WSGI_APPLICATION = 'proproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # 変更
+        'ENGINE': 'django.db.backends.postgresql', # 変更
         'NAME': 'probase', # プロジェクトで使用するデータベース名
-        'USER': 'root', # パソコンにインストールしたMySQLのユーザー名
+        'USER': 'murahararyousuke', # パソコンにインストールしたMySQLのユーザー名
         'PASSWORD': 'murasuke0131', # 同上。そのパスワード
     }
 }
@@ -121,3 +123,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+MEDIA_ROOT=BASE_DIR/'media'
+
+MEDIA_URL='/media/'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+LOGIN_REDIRECT_URL = '/gmap/api/' 
