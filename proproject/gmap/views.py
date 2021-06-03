@@ -17,13 +17,17 @@ def index(request):
 
 
 class ProCreate(CreateView):
-    template_name='gmap/create.html'
+    template_name='gmap/pin.html'
     model =Customer
     fields=['name','address','lat','lng']
-    success_url=reverse_lazy('list')
+    success_url=reverse_lazy('gmap:list')
 
 
 
 def listfunc(request):
     object_list  = Customer.objects.all()
     return render(request, 'gmap/list.html', {'object_list':object_list})
+
+
+def pin(request):
+    return render(request, 'gmap/pin.html',{})
