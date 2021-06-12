@@ -13,10 +13,19 @@
 <div class="container">
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>名前:{{ item.name}}</p>
+        <p>店名:{{ item.name}}</p>
         <p>住所:{{ item.address}}</p>
         <p>緯度:{{ item.lat}}</p>
         <p>経度:{{ item.lng}}</p>
+        <p>タンパク質:{{ item.protein}}</p>
+        <p>脂質:{{ item.fat}}</p>
+        <p>炭水化物:{{ item.carbohydrate}}</p>
+        <p>値段:{{ item.price}}</p>
+        <p>写真:{{ item.snsimage}}</p>
+        <p>営業時間:{{ item.openingtime}}</p>
+        <p>駐車場:{{ item.parking}}</p>
+
+
         
 
         

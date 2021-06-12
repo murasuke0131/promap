@@ -16,9 +16,16 @@
         margin: 0;
         padding: 0;
       }
+      .head-title {width:100%;background:#87ceeb;color:#fff;text-indent:8px;font-weight:700;line-height:180%}
     </style>
   </head>
   <body>
+  <body onload="initialize()">
+<div class="head-title">Google Maps APIを使ったサンプル。</div>
+<p>ジオコーディング 住所から座標を取得[Geocode]住所 or ランドマーク</p>
+<table style="width:100%;border:0">
+<tr style="background-color:#dddddd">
+
     <div id="map"></div>
     <script>
       var map;
@@ -51,7 +58,7 @@
         controlText.style.lineHeight = '38px';
         controlText.style.paddingLeft = '5px';
         controlText.style.paddingRight = '5px';
-        controlText.innerHTML = 'Customer Search';
+        
         controlUI.appendChild(controlText);
 
         controlUI.addEventListener('click', function() {
@@ -67,6 +74,21 @@
           xhttp.send();
 
         });
+        
+
+
+      }
+      window.onload=function() {
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                 setMarker(JSON.parse(this.responseText));
+               }
+          };
+          xhttp.open("GET", "api/customer/?format=json", true);
+          xhttp.setRequestHeader("Content-type", "application/json");
+          xhttp.send();
 
       }
 
@@ -76,20 +98,28 @@
           zoom: 8
         });
 
-        var centerControlDiv = document.createElement('div');
-        var centerControl = new CenterControl(centerControlDiv, map);
-
-        centerControlDiv.index = 1;
+       
+       
         map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+        var markerOptions = {
+    map: map,
+    position: {lat: 35.681236, lng: 139.767125},
+    icon:'gmap/templates/gmap/マッチョのフリーアイコン3.png'
 
-      }
+  };
+
+  //解説1：マーカーを生成するMarkerクラス
+  var marker = new google.maps.Marker(markerOptions);
+}
+
+      
 
       function setMarker(customerJson) {
 
         for(var i = 0; i < customerJson.length; i++){
 
           var infowindow = new google.maps.InfoWindow({
-            content: customerJson[i].name + ' ' + customerJson[i].address
+            content: customerJson[i].name + '<br> ' + customerJson[i].address + '<br> ' +customerJson[i].protein+'g'
           });
 
           var marker = new google.maps.Marker({
@@ -101,11 +131,28 @@
         }
       }
 
+
+      
+
       function bindInfoWindow(marker, map, infowindow) {
         marker.addListener('click', function() {
           infowindow.open(map, this);
+          document.getElementById('id_ido').innerHTML = customer.name;
+      document.getElementById('id_keido').innerHTML = customer.address;
+
         });
       }
+
+   
+      
+
+
+
+
+  
+
+
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2yDwkogt-9vmgzCLlFR2GDTltOckARJI&callback=initMap"
     async defer></script>

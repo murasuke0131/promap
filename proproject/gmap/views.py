@@ -1,5 +1,5 @@
 from .models import Customer
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -19,7 +19,7 @@ def index(request):
 class ProCreate(CreateView):
     template_name='gmap/pin.html'
     model =Customer
-    fields=['name','address','lat','lng']
+    fields=['name','address','lat','lng','protein','fat','carbohydrate','price','snsimage','openingtime','parking']
     success_url=reverse_lazy('gmap:list')
 
 
@@ -31,3 +31,8 @@ def listfunc(request):
 
 def pin(request):
     return render(request, 'gmap/pin.html',{})
+
+
+def detailfunc(request,pk):
+    object=get_object_or_404(Customer,pk=pk)
+    return render(request,'detail.html',{'object':object})

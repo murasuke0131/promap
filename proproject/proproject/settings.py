@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'proapp.apps.ProappConfig',
+    
     'gmap.apps.GmapConfig',
     'rest_framework'
 ]

@@ -23,7 +23,6 @@ from gmap.models import Customer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('proapp.urls')),
     path('gmap/', include('gmap.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -31,7 +30,7 @@ urlpatterns = [
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Customer
-        fields = ('name', 'address', 'lat', 'lng')
+        fields = ('name', 'address', 'lat', 'lng','protein','fat','carbohydrate','menu','snsimage','price','openingtime','parking')
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
@@ -46,4 +45,4 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('gmap/api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
