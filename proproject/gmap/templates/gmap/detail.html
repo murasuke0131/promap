@@ -1,35 +1,48 @@
-{% extends 'base.html'%}
 
-{% block header %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>私は仕事が大好きです。</title>
+  </head>
+<body>
 <div class="alert alert-primary" role="alert">
-    <h3>detail page</h3>
+    <h3>map</h3>
 </div>
 
-{% endblock header %}
 
 
 
-{% block content %}
+
+
 <div class="container">
     
     <div class="alert alert-success" role="alert">
-        <p>名前:{{ object.name}}</p>
+        <p>店名:{{ object.name}}</p>
         <p>住所:{{ object.address}}</p>
         <p>緯度:{{ object.lat}}</p>
         <p>経度:{{ object.lng}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        <p>緯度:{{ object.lat}}</p>
-        
+        <p>タンパク質:{{ object.protein}}</p>
+        <p>脂質:{{ object.fat}}</p>
+        <p>炭水化物:{{ object.carbohydrate}}</p>
+        <p>値段:{{ object.price}}</p>
+        <p>写真:<img src="{{ object.snsimage}}" width=300></p>
+        <p>営業時間:{{ object.openingtime}}</p>
+        <p>駐車場:{{ object.parking}}</p>
+
 
         
 
         
     </div>
+    
 </div>
-{% endblock content %}
+<body/>
 
+</html>

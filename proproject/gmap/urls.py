@@ -8,7 +8,7 @@ urlpatterns = [
     path('create/',ProCreate.as_view() , name='create'),
     path('list/', listfunc, name='list'),
     path('pin/',pin, name='pin'),
-    path('detail/<int:pk>',detailfunc,name='detail')
+    path('detail/<int:pk>', detailfunc ,name='detail')
 ]
 
 

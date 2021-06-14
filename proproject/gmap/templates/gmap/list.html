@@ -1,19 +1,29 @@
-{% extends 'base.html'%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block header %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>私は仕事が大好きです。</title>
+  </head>
+<body>
 <div class="alert alert-primary" role="alert">
     <h3>map</h3>
 </div>
 
-{% endblock header %}
 
 
 
-{% block content %}
+
+
 <div class="container">
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>店名:{{ item.name}}</p>
+        <p>店名:{{ item.name}}</a></p>
         <p>住所:{{ item.address}}</p>
         <p>緯度:{{ item.lat}}</p>
         <p>経度:{{ item.lng}}</p>
@@ -32,4 +42,6 @@
     </div>
     {% endfor %}
 </div>
-{% endblock content %}
+<body/>
+
+</html>

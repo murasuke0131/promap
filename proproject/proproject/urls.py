@@ -21,11 +21,6 @@ from rest_framework import routers, serializers, viewsets
 from gmap.models import Customer
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('gmap/', include('gmap.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

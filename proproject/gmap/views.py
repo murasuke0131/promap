@@ -35,4 +35,4 @@ def pin(request):
 
 def detailfunc(request,pk):
     object=get_object_or_404(Customer,pk=pk)
-    return render(request,'detail.html',{'object':object})
+    return render(request,'gmap/detail.html',{'object':object})

@@ -57,7 +57,7 @@ ROOT_URLCONF = 'proproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [BASE_DIR/'gmap/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
