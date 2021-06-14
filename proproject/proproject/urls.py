@@ -25,7 +25,7 @@ from gmap.models import Customer
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Customer
-        fields = ('name', 'address', 'lat', 'lng','protein','fat','carbohydrate','menu','snsimage','price','openingtime','parking')
+        fields = ('id','name', 'address', 'lat', 'lng','protein','fat','carbohydrate','menu','snsimage','price','openingtime','parking')
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()

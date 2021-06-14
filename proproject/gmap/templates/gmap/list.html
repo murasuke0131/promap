@@ -17,13 +17,13 @@
 
 
 
-
+{% if user.is_authenticated %}
 
 
 <div class="container">
     {% for item in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>店名:{{ item.name}}</a></p>
+        <p>店名:<a href="{% url 'gmap:detail' item.pk %}">{{ item.name}}</a></p>
         <p>住所:{{ item.address}}</p>
         <p>緯度:{{ item.lat}}</p>
         <p>経度:{{ item.lng}}</p>
@@ -42,6 +42,11 @@
     </div>
     {% endfor %}
 </div>
+
+{%else%}
+<a href="{%url "gmap:login" %}">please log in</a>
+{%endif%}
+
 <body/>
 
 </html>

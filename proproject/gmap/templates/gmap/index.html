@@ -116,10 +116,14 @@
 
       function setMarker(customerJson) {
 
+
         for(var i = 0; i < customerJson.length; i++){
 
+
+          var id= customerJson[i].id ;
+
           var infowindow = new google.maps.InfoWindow({
-            content: customerJson[i].name + '<br> ' + customerJson[i].address + '<br> ' +customerJson[i].protein+'g <br>'+'<p><a href="#">詳細</a></p>'
+            content: customerJson[i].name + '<br> ' + customerJson[i].address + '<br> ' +customerJson[i].protein+'g <br>'+ '<p><a href="{% url 'gmap:detail' id %}">詳細</a></p>'
           });
 
           var marker = new google.maps.Marker({
