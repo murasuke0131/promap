@@ -123,7 +123,7 @@
           var id= customerJson[i].id ;
 
           var infowindow = new google.maps.InfoWindow({
-            content: customerJson[i].name + '<br> ' + customerJson[i].address + '<br> ' +customerJson[i].protein+'g <br>'+ '<p><a href="{% url 'gmap:detail' id %}">詳細</a></p>'
+            content: customerJson[i].name + '<br> ' + customerJson[i].address + '<br> ' +customerJson[i].protein+'g <br>'+ '<p><a href="detail/'+customerJson[i].id+'">詳細</a></p>'
           });
 
           var marker = new google.maps.Marker({
@@ -139,11 +139,13 @@
       
 
       function bindInfoWindow(marker, map, infowindow) {
+        prev_infowindow = false
         marker.addListener('click', function() {
           infowindow.open(map, this);
-          document.getElementById('id_ido').innerHTML = customer.name;
-      document.getElementById('id_keido').innerHTML = customer.address;
-
+          if( prev_infowindow ) {
+          prev_infowindow.close();}
+          prev_infowindow = infowindow;
+         
         });
       }
 
